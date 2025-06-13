@@ -1,0 +1,91 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "JejuMyeongjo" , sans-serif;
+}
+
+.authname {
+    margin: 0;
+    padding-top: 64px;
+    padding-bottom: 59px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+    font-family: "JejuMyeongjo";
+}
+
+.auth {
+    max-width: 573px;
+    max-height: 302px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #967085;
+    border-radius: 30px;
+    font-family: "JejuMyeongjo";
+}
+
+.auth input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #D6D6D6;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: "JejuMyeongjo";
+}
+
+.auth button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f4f4f4;
+    color: #967085;
+    border: 1px solid #967085;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 20px;
+     font-family: "JejuMyeongjo";
+}
+
+h1 {
+    font-size: 96px; 
+    color: #757575;
+    padding-top: 12px;
+     font-family: "Gilda Display";
+}
+
+h2 {
+    font-size: 48px; 
+    color: #757575;
+    padding-bottom: 34px;
+     font-family: "JejuMyeongjo" ;
+}
+
+.message {
+    text-align: center;
+    font-size: 20px; 
+     font-family: "JejuMyeongjo";
+}
+
+.register-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #f4f4f4;
+    color: #967085;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: "JejuMyeongjo";
+}
+.p1 {
+    font-size: 20px; 
+    color: #757575;
+    font-family: "JejuMyeongjo" ;
+}
+.auth button:hover {
+    background-color: #967085;
+    color: #f4f4f4;
+     font-family: "JejuMyeongjo";
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Регистрация</title>
+<link href="../css/style.css" rel="stylesheet"/>
+<link href="../css/responsive.css" rel="stylesheet"/></head>
+<body>
+<form action="/auth/reg" method="post">
+<div class="regname">
+<h2>Регистрация</h2>
+</div>
+<div class="reg">
+<input id="email" name="email" placeholder="Почта" type="email"/>
+<input id="username" name="username" placeholder="Логин" type="text"/>
+<input id="password" name="password" placeholder="Пароль" type="password"/>
+<button id="registerButton" type="submit">Зарегистрироваться</button>
+<div class="message">
+<p1>Если у вас есть аккаунт, то</p1> <a class="register-btn" href="/auth/login">войдите</a>
+</div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/image/icS.svg" type="image/x-icon">
+    <style>
+        h2{
+            margin: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="nav-left">
+            <a href="/brend">О нас</a>
+            <a href="/news">Новости</a>
+            <a href="/support">Помощь</a>
+            <a href="/product/catalog">Каталог</a>
+        </div>
+        <div class="site-title">STYLE</div>
+        <div class="nav-right">
+            <div class="cart-icon"><a href="/product/cart"><img src="/image/shop.svg" alt="cart"/></a></div>
+            <a href="/auth/profile" class="btn-profile">Личный кабинет</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Ваша корзина</h2>
+        <% if (cartItems.length === 0) { %>
+            <p>Ваша корзина пуста.</p>
+        <% } else { %>
+            <div class="cart-items">
+                <% cartItems.forEach(item => { %>
+                    <% if (item.Product) { %>
+                        <div class="cart-item">
+                            <img src="<%= item.Product.ImageURL %>" alt="<%= item.Product.ProductName %>">
+                            <div class="cart-item-details">
+                                <h3><%= item.Product.ProductName %></h3>
+                                <p>Цена: <%= item.Product.Price %> РУБЛЕЙ</p>
+                                <form action="/product/update-cart/<%= item.CartID %>" method="post">
+                                    <label>Количество:</label>
+                                    <input type="number" name="quantity" value="<%= item.Quantity %>" min="0">
+                                    <button type="submit">Обновить</button>
+                                </form>
+                                <form action="/product/remove-from-cart/<%= item.CartID %>" method="post">
+                                    <button type="submit" class="remove-btn">Удалить</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% } %>
+                <% }); %>
+            </div>
+        <% } %>
+    </section>
+
+    <footer>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="links">
+            <a href="/brend">О нас</a>
+            <a href="/news">Новости</a>
+            <a href="/support">Помощь</a>
+            <a href="/product/catalog">Каталог</a>
+            <a href="/product/cart">Корзина</a>
+            <a href="/auth/profile">Личный кабинет</a>
+            <a href="/auth/profile">Мои объявления</a>
+            <a href="/auth/login">Вход и регистрация</a>
+        </div>
+        <div class="text">
+            Style - сайт объявлений в России.<br>
+            Оплачивая услугу на нашем сайте, вы принимаете офёрту.<br>
+            Сайт использует рекомендательные технологии.
+        </div>
+        <div class="icons">
+            <a href="#"><img src="/image/vk.png" alt="Иконка 1" class="icon"></a>
+            <a href="#"><img src="/image/Instagram.png" alt="Иконка 2" class="icon"></a>
+            <a href="#"><img src="/image/Facebook.png" alt="Иконка 3" class="icon"></a>
+        </div>
+    </footer>
+</body>
+</html>

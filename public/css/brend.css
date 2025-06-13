@@ -1,0 +1,316 @@
+@font-face {
+    font-family: "JejuMyeongjo-Regular.ttf";
+    src: url(font/JejuMyeongjo-Regular.ttf);
+}
+
+@font-face {
+    font-family: "GildaDisplay-Regular.ttf";
+    src: url(font/GildaDisplay-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "JejuMyeongjo-Regular.ttf";
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #4F4F4F;
+    font-family: "JejuMyeongjo-Regular.ttf";
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #4F4F4F;
+}
+.nav-left {
+    display: flex;
+    gap: 25px;
+    font-size: 20px;
+    margin-left: 80px;
+}
+.nav-left a {
+    text-decoration: none;
+    color: #4F4F4F;
+}
+.site-title a header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #4F4F4F;
+}
+.nav-left {
+    display: flex;
+    gap: 25px;
+    font-size: 20px;
+    margin-left: 80px;
+}
+.nav-left a {
+    text-decoration: none;
+    color: #4F4F4F;
+}
+.site-title a {
+    font-family: "GildaDisplay-Regular.ttf";
+    font-weight: 100;
+    font-size: 96px;
+    text-align: center;
+    flex-grow: 1;
+    text-decoration: none;
+    color: #4F4F4F;
+}
+.nav-right {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 80px;
+}
+.cart-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url('image/shop.svg'); 
+    background-size: cover;
+}
+.nav-right a {
+    text-decoration: none;
+    color: #4F4F4F;
+}
+.btn-profile {
+    border: 1px solid #967085;
+    padding: 5px 10px;
+    border-radius: 26px;
+    text-decoration: none;
+    color: #967085;
+    transition: background-color 0.3s;
+}
+.btn-profile:hover {
+    background-color: #f0f0f0;
+}
+.bottom-line {
+    height: 2px;
+    background-color:#4F4F4F;
+    margin-top: 5px;
+    }
+/* intro */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    text-align: left;
+    padding: 98px;
+}
+
+.name_bl {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    color: #967085;
+}
+
+h1 {
+    text-align: left;
+    font-size: 48px;
+    color: #967085;
+}
+
+.text_b {
+    text-align: left;
+    font-size: 48px;
+    color: #4F4F4F;
+}
+
+/* карточки */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card1 {
+    background-color: #f4f4f4(255, 255, 255, 0.8);
+    border: 1px solid #967085;
+    border-radius: 20px;
+    width: 770px;
+    height: 289px;
+    margin: 6px 0px 12px 80px;
+    padding: 20px;
+    /* Общий отступ */
+    animation: fadeIn 0.5s;
+    /* Анимация плавного появления */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card2 {
+    background-color: #f4f4f4(255, 255, 255, 0.8);
+    border: 2px solid #967085;
+    border-radius: 20px;
+    width: 530px;
+    height: 289px;
+    margin: 6px 80px 6px 6px;
+    /* 12px вертикальный отступ, 40px горизонтальный */
+    padding: 20px;
+    /* Общий отступ */
+    animation: fadeIn 0.5s;
+    /* Анимация плавного появления */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card3 {
+    background-color: #f4f4f4(255, 255, 255, 0.8);
+    border: 2px solid #967085;
+    border-radius: 20px;
+    width: 467px;
+    height: 289px;
+    margin: 1px 6px 300px 80px;
+    /* 12px вертикальный отступ, 40px горизонтальный */
+    padding: 20px;
+    /* Общий отступ */
+    animation: fadeIn 0.5s;
+    /* Анимация плавного появления */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card4 {
+    background-color: #f4f4f4(255, 255, 255, 0.8);
+    border: 1px solid #967085;
+    border-radius: 20px;
+    width: 664px;
+    height: 289px;
+    margin: 1px 200px 300px 6px;
+    /* 12px вертикальный отступ, 40px горизонтальный */
+    padding: 20px;
+    /* Общий отступ */
+    animation: fadeIn 0.5s;
+    /* Анимация плавного появления */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.text1 {
+    color: #4F4F4F;
+    font-size: 40px;
+    margin-top: 106px;
+}
+
+.text2 {
+    color: #4F4F4F;
+    font-size: 20px;
+}
+
+.text3 {
+    color: #4F4F4F;
+    font-size: 20px;
+    margin-top: -200px;
+    text-align: right;
+    margin-right: 19px;
+}
+
+/* Убираем отступы у первой карточки по верхнему краю */
+.card:first-child .text1 {
+    margin-top: 0;
+}
+
+.cir {
+    background-image: url('circle.svg');
+    position: absolute;
+    width: 125px;
+    /* ширина изображения */
+    height: auto;
+    /* автоматическая высота */
+    right: 110px;
+    /* выравнивание по правому краю */
+    margin: 280px 0px 0 6px;
+    /* отступ сверху */
+}
+
+/* footer */
+.footer {
+    padding-left: 55px;
+    /* Отступ слева */
+    font-family: Arial, sans-serif;
+    /* Шрифт */
+    background-color: #f8f8f8;
+    /* Цвет фона подвала */
+    padding: 20px 0;
+    /* Вертикальные отступы */
+}
+
+.line {
+    border-top: 1px solid #4F4F4F;
+    /* Верхняя линия */
+    margin: 5px 0;
+    /* Отступы вокруг линии */
+}
+
+.links {
+    margin-top: 40px;
+    /* Отступ сверху */
+    margin-left: 55px;
+    font-size: 20px;
+}
+
+.links a {
+    margin-right: 15px;
+    /* Отступ между ссылками */
+    text-decoration: none;
+    /* Убираем подчеркивание */
+    color: #4F4F4F;
+    /* Цвет ссылок */
+}
+
+.text {
+    margin-top: 34px;
+    /* Отступ сверху для текста */
+    font-size: 15px;
+    /* Размер текста */
+    color: #4F4F4F;
+    /* Цвет текста */
+    margin-left: 55px;
+}
+
+.icons {
+    margin-top: 26px;
+    /* Отступ сверху для иконок */
+}
+
+.icons a {
+    margin-right: 15px;
+    /* Отступ между иконками */
+    display: inline-block;
+    /* Отображение в одну строку */
+    text-decoration: none;
+    /* Убираем подчеркивание */
+}
+
+.icon {
+    width: 90px;
+    /* Ширина иконки */
+    height: 90px;
+    /* Высота иконки */
+    margin-left: 55px;
+}

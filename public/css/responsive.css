@@ -1,0 +1,435 @@
+/* responsive.css - Base reset and breakpoints */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+}
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tablet (>=600px) */
+@media (min-width: 600px) {
+  /* Add tablet-specific styles here */
+}
+
+/* Desktop (>=900px) */
+@media (min-width: 900px) {
+  /* Add desktop-specific styles here */
+}
+
+/* Mobile (<600px) overrides */
+@media (max-width: 599px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .nav-left {
+    margin-left: 0 !important;
+    gap: 10px !important;
+    font-size: 16px !important;
+    flex-wrap: wrap !important;
+  }
+  .nav-right {
+    margin-top: 10px !important;
+    gap: 10px !important;
+    font-size: 16px !important;
+  }
+  .nav-left a, .nav-right a {
+    padding: 5px 10px !important;
+  }
+  .button1 {
+    font-size: 18px !important;
+    padding: 8px 20px !important;
+  }
+  .announcement-text a {
+    font-size: 16px !important;
+    margin-left: 5px !important;
+  }
+}
+
+/* Tablet and small desktops (<=900px) header adjustments */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .site-title {
+    font-size: 2rem !important;
+    margin: 5px 0;
+  }
+  .nav-left, .nav-right {
+    width: 100%;
+    display: flex !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 5px 0;
+    text-align: center;
+  }
+}
+
+/* Mobile hero buttons stacking */
+@media (max-width: 599px) {
+  .text-section .line-btn {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-top: 10px;
+  }
+  .text-section .line-btn .announcement-text {
+    margin-top: 5px !important;
+  }
+}
+
+/* Mobile (<600px) further adjustments */
+@media (max-width: 599px) {
+  /* 1. Hide decorative rotating text backgrounds */
+  .rotating-text, .decorative-circle, .circle-text {
+    display: none !important;
+  }
+
+  /* 2. Header: hide site title, add full-width stripe, paddings */
+  .site-title, .logo {
+    display: none !important;
+  }
+  header {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+  }
+  .nav-left, .nav-right, .cart-icon, .profile-link {
+    gap: 12px !important;
+    padding: 0 12px !important;
+  }
+
+  /* 3. Center category items */
+  .categories, .categories-list {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* 4. Prevent horizontal scroll */
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+/* Mobile (<600px) header row layout and full visibility */
+@media (max-width: 599px) {
+  header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    padding: 10px 12px !important;
+  }
+  /* Nav left items at start */
+  .nav-left {
+    order: 1;
+    display: flex !important;
+    gap: 12px !important;
+  }
+  /* Nav right items at end */
+  .nav-right {
+    order: 2;
+    display: flex !important;
+    gap: 12px !important;
+  }
+  .cart-icon, .profile-link {
+    margin-left: 12px !important;
+  }
+  /* Hide decorative text */
+  .rotating-text, .decorative-circle, .circle-text {
+    display: none !important;
+  }
+  /* Categories equal size and centered */
+  .categories-list {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    padding: 0 12px !important;
+  }
+  .categories-list li {
+    flex: 0 0 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    box-sizing: border-box !important;
+  }
+  .categories-list li img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  .categories-list li .category-title {
+    text-align: center !important;
+    margin-top: 5px !important;
+    font-size: 1rem !important;
+  }
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+/* Mobile (<600px) complete header and layout fixes */
+@media (max-width: 599px) {
+  /* Hide all rotating/decorative graphics */
+  [class*="rotate"], [class*="circle"], svg {
+    display: none !important;
+  }
+  /* Header layout: row with wrapping nav items */
+  header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    padding: 10px 12px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  /* Nav left and right wrap */
+  .nav-left, .nav-right {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    max-width: 45% !important;
+  }
+  .nav-right {
+    justify-content: flex-end !important;
+  }
+  /* Ensure cart and profile icons visible */
+  .cart-icon, .profile-link, .icon-cart, .icon-user {
+    display: inline-flex !important;
+    padding: 0 8px !important;
+    align-items: center !important;
+  }
+  /* Categories grid: 2 columns square */
+  .categories-list {
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    padding: 0 12px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .categories-list li {
+    flex: 0 0 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    box-sizing: border-box !important;
+  }
+  .categories-list li img {
+    width: 100% !important;
+    height: 0 !important;
+    padding-bottom: 100% !important; /* square */
+    object-fit: cover !important;
+  }
+  .categories-list li .category-title {
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 6px !important;
+    font-size: 1rem !important;
+  }
+  /* Prevent any horizontal scroll */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+}
+
+/* Mobile (<600px) final fixes */
+@media (max-width: 599px) {
+  /* Hide site title/logo */
+  .site-title, .logo {
+    display: none !important;
+  }
+
+  /* Header: row layout, full width, visible nav items */
+  header {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px 12px !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Nav items: no wrap, spaced */
+  .nav-left, .nav-right {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .nav-left {
+    flex: 1 1 auto !important;
+    justify-content: flex-start !important;
+  }
+  .nav-right {
+    justify-content: flex-end !important;
+  }
+  .btn-profile {
+    display: inline-block !important;
+    padding: 5px 10px !important;
+  }
+  .cart-icon img {
+    width: 24px !important;
+    height: auto !important;
+  }
+
+  /* Hide decorative circles */
+  .circle5, .circle-icon {
+    display: none !important;
+  }
+
+  /* Categories: two columns, square images, centered */
+  .categories-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    padding: 0 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .categories-list li {
+    flex: 0 0 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+  }
+  .categories-list li img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+  }
+  .categories-list li .category-title {
+    text-align: center !important;
+    margin-top: 5px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Prevent horizontal scrolling */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+}
+
+/* Mobile (<600px) final comprehensive fixes */
+@media (max-width: 599px) {
+  /* 1. Hide decorative circles */
+  .circle-icon, .circle5 {
+    display: none !important;
+  }
+
+  /* 2. Header: wrap nav items into two rows, full visibility */
+  header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 10px 12px !important;
+    border-bottom: 1px solid #e0e0e0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+  .site-title, .logo {
+    display: none !important;
+  }
+  .nav-left, .nav-right {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .nav-left {
+    order: 1 !important;
+    margin-bottom: 5px !important;
+  }
+  .nav-right {
+    order: 2 !important;
+    margin-top: 5px !important;
+  }
+  .cart-icon, .btn-profile {
+    padding: 5px 10px !important;
+  }
+
+  /* 3. Categories: two columns square layout */
+  .cards, .cards1 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding: 0 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .cards > div, .cards1 > div {
+    flex: 0 0 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    box-sizing: border-box !important;
+  }
+  .cards img, .cards1 img {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  .card-title a, .card-title1 a {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 5px !important;
+    font-size: 1rem !important;
+  }
+
+  /* 4. No horizontal scroll */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+}
+
+/* Mobile (<600px) cards container override */
+@media (max-width: 599px) {
+  .cards {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+  }
+  .cards .card {
+    flex: 0 0 calc(50% - 10px) !important;
+    max-width: calc(50% - 10px) !important;
+    box-sizing: border-box !important;
+  }
+  .cards .card img {
+    width: 100% !important;
+    aspect-ratio: 1/1 !important;
+    object-fit: cover !important;
+  }
+  .cards .card-title, .cards .card-description {
+    text-align: center !important;
+    margin-top: 5px !important;
+    font-size: 1rem !important;
+  }
+}

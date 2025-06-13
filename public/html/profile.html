@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Личный кабинет</title>
+<link href="../css/profile.css" rel="stylesheet"/>
+<link href="../image/icS.svg" rel="shortcut icon" type="image/x-icon"/>
+<link href="../css/responsive.css" rel="stylesheet"/></head>
+<body>
+<header>
+<div class="nav-left">
+<a href="/brend">О нас</a>
+<a href="/news">Новости</a>
+<a href="/support">Помощь</a>
+<a href="/product/catalog">Каталог</a>
+</div>
+<div class="site-title">STYLE</div>
+<div class="nav-right">
+<div class="cart-icon"> <a href="/product/cart"><img alt="search" src="../image/shop.svg"/></a></div>
+<button class="btn-profile" onclick="logout()">Выход</button>
+</div>
+</header>
+<section>
+<div class="pb">
+<div class="profile-image" id="profileImage">
+<img alt="Avatar" id="avatarImg" src="/image/default-avatar.png"/>
+</div>
+<form enctype="multipart/form-data" id="avatarForm">
+<input accept="image/*" id="fileInput" name="avatar" onchange="uploadAvatar(event)" style="display: none;" type="file"/>
+<button class="change-photo-button" onclick="document.getElementById('fileInput').click()" type="button">Изменить фото</button>
+</form>
+<div class="block_img">
+<img alt="" src="../image/profile.svg"/>
+</div>
+</div>
+<div class="content">
+<div class="block_inf">
+<div class="label">
+<h3>Никнейм</h3>
+<input class="text-align" id="username" readonly="" type="text"/>
+</div>
+<div class="label">
+<h3>Телефон</h3>
+<input class="text-align" id="phoneNumber" type="text"/>
+</div>
+<div class="label">
+<h3>Дата рождения</h3>
+<input class="text-align" id="dateOfBirth" type="date"/>
+</div>
+<div class="label">
+<button onclick="editProfile()">Редактировать</button>
+</div>
+</div>
+</div>
+</section>
+<button class="btn-publish" onclick="document.getElementById('modal').style.display='flex'">Опубликовать объявление</button>
+<div class="modal" id="modal">
+<form action="/product/add-product" class="modal-content" enctype="multipart/form-data" method="post">
+<h3>Создать объявление</h3>
+<input id="productTitle" name="productName" placeholder="Название товара" type="text"/><br/>
+<input id="productDescription" name="description" placeholder="Описание товара" type="text"/><br/>
+<input id="productPrice" name="price" placeholder="Цена" type="number"/><br/>
+<select name="category">
+<option value="Вязание">Вязание</option>
+<option value="Бисероплетение">Бисероплетение</option>
+<option value="Эпоксидная работа">Эпоксидная работа</option>
+<option value="Керамика">Керамика</option>
+<option value="Свечеварение">Свечеварение</option>
+<option value="Мыловарение">Мыловарение</option>
+</select><br/>
+<input id="productImage" name="productImage" type="file"/><br/>
+<button type="submit">Опубликовать</button>
+<button onclick="document.getElementById('modal').style.display='none'" type="reset">Закрыть</button>
+</form>
+</div>
+<div id="announcementList"></div>
+<script>
+        async function logout() {
+            try {
+                await fetch('/auth/logout', { method: 'POST' });
+                window.location.href = '/auth/login';
+            } catch (error) {
+                console.error('Ошибка при выходе:', error);
+            }
+        }
+
+        window.onload = async function () {
+            await loadUserData();
+        };
+
+        async function loadUserData() {
+            try {
+                const response = await fetch('/auth/user-data');
+                if (response.ok) {
+                    const userData = await response.json();
+                    document.getElementById('username').value = userData.username;
+                    document.getElementById('phoneNumber').value = userData.phoneNumber || '';
+                    document.getElementById('dateOfBirth').value = userData.dateOfBirth || '';
+                    document.getElementById('avatarImg').src = userData.avatar || '/image/default-avatar.png';
+                } else {
+                    console.error('Ошибка при получении данных пользователя');
+                }
+            } catch (error) {
+                console.error('Ошибка при получении данных пользователя:', error);
+            }
+        }
+
+        async function uploadAvatar(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append('avatar', file);
+                try {
+                    const response = await fetch('/auth/upload-avatar', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    if (response.ok) {
+                        const data = await response.json();
+                        document.getElementById('avatarImg').src = data.avatar;
+                        alert('Аватар успешно обновлен');
+                    } else {
+                        alert('Ошибка при загрузке аватара');
+                    }
+                } catch (error) {
+                    console.error('Ошибка при загрузке аватара:', error);
+                    alert('Ошибка при загрузке аватара');
+                }
+            }
+        }
+
+        async function editProfile() {
+            const username = document.getElementById('username').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const dateOfBirth = document.getElementById('dateOfBirth').value;
+
+            try {
+                const response = await fetch('/auth/update-profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, phoneNumber, dateOfBirth })
+                });
+                if (response.ok) {
+                    alert('Профиль обновлен');
+                } else {
+                    alert('Ошибка при обновлении профиля');
+                }
+            } catch (error) {
+                console.error('Ошибка при обновлении профиля:', error);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Войти</title>
+<link href="../css/style.css" rel="stylesheet"/>
+<link href="../css/responsive.css" rel="stylesheet"/></head>
+<body>
+<div class="authname">
+<h2>Авторизация</h2>
+</div>
+<form action="/auth/login" method="post">
+<div class="auth">
+<input id="username" name="username" placeholder="Логин" type="text"/>
+<input id="password" name="password" placeholder="Пароль" type="password"/>
+<button id="loginButton" type="submit">Войти</button>
+<div class="message">
+<p1>Если у вас нет аккаунта, то</p1> <a class="register-btn" href="/auth/reg">зарегистрируйтесь</a>
+</div>
+</div>
+</form>
+</body>
+</html>

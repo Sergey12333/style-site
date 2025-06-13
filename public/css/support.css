@@ -1,0 +1,199 @@
+@font-face {
+    font-family: "JejuMyeongjo-Regular.ttf" ;
+    src: url(font/JejuMyeongjo-Regular.ttf);
+}
+@font-face {
+    font-family: "GildaDisplay-Regular.ttf";
+    src: url(font/GildaDisplay-Regular.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "JejuMyeongjo-Regular.ttf";
+}
+body {
+    background-color: #f4f4f4;
+    color: #4F4F4F;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #4F4F4F;
+}
+.nav-left {
+    display: flex;
+    gap: 25px;
+    font-size: 20px;
+    margin-left: 80px;
+}
+.nav-left a {
+    text-decoration: none;
+    color: #4F4F4F;
+}
+.site-title {
+    font-family: "GildaDisplay-Regular.ttf";
+    font-weight: 100;
+    font-size: 96px;
+    text-align: center;
+    flex-grow: 1;
+    color: #4F4F4F;
+}
+.nav-right {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 80px;
+}
+.cart-icon {
+    background-image: url('shop.svg'); 
+    background-size: cover;
+}
+.nav-right a {
+    text-decoration: none;
+    color: #4F4F4F;
+}
+.btn-profile {
+    border: 1px solid #967085;
+    padding: 5px 10px;
+    border-radius: 26px;
+    text-decoration: none;
+    color: #967085;
+    transition: background-color 0.3s;
+}
+.btn-profile:hover {
+    background-color: #f0f0f0;
+}
+.bottom-line {
+    height: 2px;
+    background-color:#4F4F4F;
+    margin-top: 5px;
+}
+/* intro */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    text-align: left;
+    padding: 98px;
+}
+
+.name_bl {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    color: #967085;
+}
+
+h1 {
+    text-align: left;
+    font-size: 48px;
+    color: #967085;
+}
+
+h2 {
+    text-align: left;
+    font-size: 48px;
+    color: #967085;
+}
+.text_b {
+    text-align: left;
+    font-size: 48px;
+    color: #4F4F4F;
+}
+/* контейнер */
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    font-size: 32px; 
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px; /* Отступ между элементами в колонне */
+    gap: 53px;
+}
+
+.icon {
+    width: 24px; /* Размер иконки */
+    height: 24px;
+    margin-right: 10px; /* Отступ между иконкой и текстом */
+}
+
+.right-column {
+    margin-left: 188px; /* Отступ от левой колонки */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.right-label {
+    margin-bottom: 45px; 
+    font-size: 32px;  
+}
+
+.right-label1 {
+    margin-bottom: 45px; 
+    font-size: 48px;  
+}
+/* footer */
+.footer {
+    padding-left: 55px; /* Отступ слева */
+    font-family: Arial, sans-serif; /* Шрифт */
+    background-color: #f8f8f8; /* Цвет фона подвала */
+    padding: 20px 0; /* Вертикальные отступы */
+}
+.line {
+    border-top: 1px solid #4F4F4F; /* Верхняя линия */
+    margin: 5px 0; /* Отступы вокруг линии */
+}
+.links {
+    margin-top: 40px; /* Отступ сверху */
+    margin-left: 55px;
+    font-size: 20px;
+}
+.links a {
+    margin-right: 15px; /* Отступ между ссылками */
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #4F4F4F; /* Цвет ссылок */
+}
+.text {
+    margin-top: 34px; /* Отступ сверху для текста */
+    font-size: 15px; /* Размер текста */
+    color: #4F4F4F; /* Цвет текста */
+    margin-left: 55px;
+}
+.icons {
+    margin-top: 26px; /* Отступ сверху для иконок */
+}
+.icons a {
+    margin-right: 15px; /* Отступ между иконками */
+    display: inline-block; /* Отображение в одну строку */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+.icon {
+    width: 90px; /* Ширина иконки */
+    height: 90px; /* Высота иконки */
+    margin-left: 55px;
+}

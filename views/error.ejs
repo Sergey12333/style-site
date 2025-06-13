@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка <%= errorCode %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        html, body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <div class="error-container">
+        <h1>Ошибка <%= errorCode %></h1>
+        <p><%= errorMessage %></p>
+        <a href="/">Вернуться на главную</a>
+    </div>
+</body>
+</html>
