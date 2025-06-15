@@ -87,3 +87,25 @@
     height: 32px !important;
   }
 }
+/* ==== Глобальный фикс для всего контента ==== */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;        /* запретить горизонтальный скролл */
+}
+
+/* контейнер-обёртка для выравнивания и отступов */
+.page-wrapper {
+  max-width: 100%;
+  padding: 0 16px;           /* по 16px слева/справа */
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* ==== Заголовок (Logo) ==== */
+@media (max-width: 600px) {
+  header .logo {
+    font-size: 1.5rem;        /* чуть меньше на мобилках */
+    white-space: nowrap;      /* не разбивать слово на буквы */
+  }
+}
