@@ -576,3 +576,52 @@ footer .icons img.icon { width: 24px; height: 24px; object-fit: contain; }
     height: auto;
   }
 }
+/* ==== MOBILE FIXES ==== */
+@media (max-width: 600px) {
+  /* Блоки на brend-странице */
+  .block {
+    padding: 16px !important;    /* вместо 98px */
+    gap: 16px !important;        /* вместо 34px */
+  }
+
+  /* Тайтлы внутри блоков */
+  .block h2 {
+    font-size: 18px !important;
+    line-height: 1.2;
+  }
+
+  /* Параграфы в блоках */
+  .block p {
+    font-size: 14px !important;
+    line-height: 1.4;
+  }
+
+  /* Страницы brend, news */
+  .brend-text, .news-text {
+    padding: 0 16px !important;
+    font-size: 14px !important;
+  }
+
+  /* Страница поддержки – иконки не выезжают */
+  .support-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 16px;
+  }
+  .support-icons img {
+    max-width: 48px;
+    margin: 8px;
+  }
+
+  /* Общие отступы вокруг секций */
+  section, footer {
+    padding: 0 16px !important;
+  }
+
+  /* Уменьшаем шрифт body */
+  body {
+    font-size: 14px !important;
+  }
+}
+
