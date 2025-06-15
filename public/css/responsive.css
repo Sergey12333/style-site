@@ -1,138 +1,112 @@
-/* responsive.css */
-
-/* Сброс отступов и box-sizing */
-*,
-*::before,
-*::after {
+/* Updated responsive fixes */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* Обёртка всего контента */
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Мобильная навигация, если есть */
-
-/* … здесь другие глобальные стили … */
-
-/* Мобильная версия */
 @media (max-width: 480px) {
-  /* Скрываем большое лого в шапке */
-  header .logo {
-    display: none !important;
-  }
-
-  /* Основное меню */
-  header nav {
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    padding: 12px !important;
-  }
-  header nav a {
-    padding: 8px 0 !important;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Кнопка личного кабинета */
-  .btn-account {
-    margin: 12px auto !important;
-  }
-
-  /* Блок-обёртка карточек */
   .block {
+    padding: 12px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .container {
     display: flex !important;
     flex-direction: column !important;
     gap: 20px !important;
-    padding: 12px !important;
-    width: 100% !important;
-    box-sizing: border-box;
+    padding: 0 12px !important;
   }
-
-  /* Все карточки внутри .block */
-  .block .card1,
-  .block .card2,
-  .block .card3,
-  .block .card4 {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 16px !important;
-    margin: 0 auto !important;
-    border-radius: 12px !important;
-    border: 1px solid #baa3b7 !important;
-    overflow-wrap: break-word !important;
+  header nav, .top-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .footer-email {
     word-break: break-word !important;
-    box-sizing: border-box !important;
-    background: #faf9f7 !important;
+    white-space: normal !important;
+    text-align: center !important;
   }
-
-  /* Номера карточек */
-  .block .card1 span,
-  .block .card2 span,
-  .block .card3 span,
-  .block .card4 span {
-    display: block !important;
-    text-align: right !important;
-    margin-bottom: 8px !important;
+  .social-icons img {
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 8px !important;
   }
-
-  /* Центральный вращающийся логотип */
-  .block .cir {
-    display: none !important;
-  }
-
-  /* Основной текст разделов */
-  .section-text {
-    padding: 12px !important;
-    font-size: 16px !important;
-    line-height: 1.5 !important;
-  }
-
-  /* Отступы между секциями */
-  section {
-    margin-bottom: 24px !important;
-  }
-
-  /* Галерея изображений */
-  .gallery {
+  .product-images {
     display: flex !important;
     flex-direction: column !important;
     gap: 12px !important;
-    padding: 0 12px !important;
   }
-  .gallery img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 8px !important;
-    object-fit: cover !important;
+}
+
+/* ==== Mobile “single-column” overhaul ==== */
+@media (max-width: 480px) {
+  /* 1) Секция: одна колонка */
+  section {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 0 16px !important;
   }
 
-  /* Футер и соцсети */
-  footer {
-    padding: 16px 12px !important;
-    text-align: center !important;
-  }
-  footer .social-icons {
+  /* 2) Меню навигации: центр, перенос по строкам */
+  header nav {
     display: flex !important;
+    flex-wrap: wrap !important;
     justify-content: center !important;
-    gap: 16px !important;
-    margin-top: 12px !important;
+    gap: 12px !important;
   }
-  footer .social-icons img {
+  header nav a {
+    flex: none !important;
+  }
+
+  /* 3) Карточки: 100% ширины с учётом отступов */
+  .card1, .card2, .card3, .card4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  /* 4) Текст: no-break, чтобы не резал по буквам */
+  body, p, h1, h2, h3, h4, .container, .block {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* 5) Спрятать большой заголовок сайта, если он мешает */
+  header h1 {
+    display: none !important;
+  }
+
+  /* 6) Иконки: одинаковый размер */
+  footer .social-icon img,
+  .icon-cart {
     width: 32px !important;
     height: 32px !important;
   }
+}
 
-  /* Электронная почта в футере */
-  footer .email {
-    display: block !important;
-    font-size: 14px !important;
-    margin-bottom: 8px !important;
-    word-break: normal !important;
+/* ==== Глобальный фикс для всего контента ==== */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;        /* запретить горизонтальный скролл */
+}
+
+/* контейнер-обёртка для выравнивания и отступов */
+.page-wrapper {
+  max-width: 100%;
+  padding: 0 16px;           /* по 16px слева/справа */
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* ==== Заголовок (Logo) ==== */
+@media (max-width: 600px) {
+  header .logo {
+    font-size: 1.5rem;        /* чуть меньше на мобилках */
+    white-space: nowrap;      /* не разбивать слово на буквы */
   }
 }
