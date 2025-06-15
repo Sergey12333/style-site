@@ -129,3 +129,14 @@ footer .social-icons img {
   .btn-account { font-size: 14px; }
   .footer .contact-info { font-size: 12px; }
 }
+/* В конец public/css/responsive.css */
+
+/* Жёсткая фиксация карточек на экранах до 480px */
+@media (max-width: 480px) {
+  .block {
+    padding: 12px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
