@@ -110,3 +110,23 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 16px 0 !important;
   }
 }
+/* Гарантируем, что текст внутри карточек не выйдет за рамки */
+@media (max-width: 480px) {
+  .card1, .card2, .card3, .card4 {
+    position: relative;
+    overflow: hidden;      /* Обрезаем всё что вне рамки */
+    word-break: break-word; /* Переносим длинные слова */
+    hyphens: auto;         /* Расстановка переносов (если поддерживается) */
+  }
+
+  .card1 p, .card2 p, .card3 p, .card4 p {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}
