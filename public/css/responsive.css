@@ -493,3 +493,48 @@ footer .icons img.icon { width: 24px; height: 24px; object-fit: contain; }
     padding: 0 8px;
   }
 }
+
+/* v17: Mobile padding and overflow fixes */
+@media (max-width: 600px) {
+  body, main, section {
+    padding: 0 16px !important;
+  }
+
+  /* /brend page */
+  .brend-text, .about-content {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* /news page */
+  .news-item p {
+    font-size: 0.9rem;
+    margin: 12px 0;
+  }
+  .news-item {
+    padding: 0 8px;
+  }
+
+  /* /support page */
+  .support-icon img,
+  .support-icons img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .support-icons {
+    text-align: center;
+    padding: 0 8px;
+  }
+}
+
+/* v18: Mobile fixes for brend, news, support */
+@media (max-width: 600px) {
+  body, main, section { padding: 0 16px !important; }
+  .brend-text, .about-content { overflow-wrap: break-word; word-break: break-word; }
+  .news-item p { font-size: 0.9rem; margin: 12px 0; }
+  .news-item { padding: 0 8px; }
+  .support-icon img, .support-icons img { max-width:100%; height:auto; display:block; margin:0 auto; }
+  .support-icons { text-align:center; padding:0 8px; }
+}
