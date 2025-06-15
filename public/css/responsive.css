@@ -1,142 +1,43 @@
-/* public/css/responsive.css */
 
-/* 1. Сбрасываем базовые отступы и убираем горизонтальную прокрутку */
-*,
-*::before,
-*::after {
+/* Updated responsive fixes */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  overflow-x: hidden;
 }
 
-/* 2. Общие стили */
-body {
-  font-family: serif;
-  font-size: 16px;
-  line-height: 1.4;
-  background: #f5f5f5;
-}
-
-/* 3. Шапка */
-header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  z-index: 100;
-}
-header .container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
-header nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  overflow-x: auto;
-}
-header nav a {
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-header .logo-text {
-  display: none; /* убрали крупное название на мобилках */
-}
-header .icon-cart {
-  order: 1;
-  margin-right: 8px;
-}
-header .btn-account {
-  order: 2;
-  margin: 8px 0;
-}
-
-/* 4. Секция с карточками */
-section {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.block {
-  position: relative;
-  padding: 16px;
-  border: 1px solid #b090a0;
-  border-radius: 8px;
-  background: #fff;
-  width: 100%;
-}
-.block .decor-circle {
-  position: static !important;
-  transform: none !important;
-  margin-bottom: 8px;
-}
-.block h2,
-.block p {
-  word-wrap: break-word;
-  font-size: 1rem;
-}
-
-/* 5. Карточки изображений */
-.images-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-.images-row img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* 6. Футер */
-footer {
-  background: #fff;
-  padding: 16px 0;
-  text-align: center;
-}
-footer .contact-info {
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-footer .contact-info .email {
-  display: inline-block;
-  white-space: nowrap;
-}
-footer .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-footer .social-icons img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
-/* 7. Мелкие правки для очень узких экранов */
-@media (max-width: 360px) {
-  body { font-size: 14px; }
-  header nav { gap: 8px; }
-  .btn-account { font-size: 14px; }
-  .footer .contact-info { font-size: 12px; }
-}
-/* В конец public/css/responsive.css */
-
-/* Жёсткая фиксация карточек на экранах до 480px */
 @media (max-width: 480px) {
   .block {
     padding: 12px !important;
     margin: 0 auto !important;
     width: 100% !important;
     box-sizing: border-box !important;
+  }
+  .container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 0 12px !important;
+  }
+  header nav, .top-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+  .footer-email {
+    word-break: break-word !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+  .social-icons img {
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 8px !important;
+  }
+  .product-images {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
   }
 }
