@@ -538,3 +538,41 @@ footer .icons img.icon { width: 24px; height: 24px; object-fit: contain; }
   .support-icon img, .support-icons img { max-width:100%; height:auto; display:block; margin:0 auto; }
   .support-icons { text-align:center; padding:0 8px; }
 }
+/* public/css/responsive.css */
+
+@media (max-width: 768px) {
+  /* 1. Страница /brend — чтобы текст не выезжал */
+  .brend-section p {
+    /* переносим длинные слова */
+    overflow-wrap: break-word;
+    word-break: break-word;
+    /* отступы слева-справа */
+    padding: 0 16px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  /* 2. Страница /news — чуть меньше шрифт и больше отступов */
+  .news-list, .news-article {
+    padding: 0 16px;
+  }
+  .news-list .news-item p,
+  .news-article p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  /* 3. Страница /support — иконки в ряд, не выезжают */
+  .support-icons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 16px;
+  }
+  .support-icons img {
+    /* чтобы иконки не были слишком большими */
+    max-width: 20%;
+    height: auto;
+  }
+}
