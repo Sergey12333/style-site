@@ -1,111 +1,107 @@
+/* responsive.css */
 
-/* Updated responsive fixes */
+/* Сброс */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-@media (max-width: 480px) {
-  .block {
-    padding: 12px !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  .container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-    padding: 0 12px !important;
-  }
-  header nav, .top-menu {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 12px !important;
-  }
-  .footer-email {
-    word-break: break-word !important;
-    white-space: normal !important;
-    text-align: center !important;
-  }
-  .social-icons img {
-    width: 32px !important;
-    height: 32px !important;
-    margin: 0 8px !important;
-  }
-  .product-images {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-  }
+/* Обёртка страницы */
+.page-wrapper {
+  max-width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
 }
-/* ==== Mobile “single-column” overhaul ==== */
+
+/* Общие стили для мобильных */
 @media (max-width: 480px) {
-  /* 1) Секция: одна колонка */
-  section {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-    padding: 0 16px !important;
+  body, html {
+    width: 100%;
   }
 
-  /* 2) Меню навигации: центр, перенос по строкам */
+  /* Убираем горизонтальный скролл, но не скрываем контент */
+  html {
+    overflow-x: hidden;
+  }
+
+  /* Шапка */
+  header {
+    padding: 12px 0;
+  }
+  header .logo {
+    font-size: 1.25rem;
+    white-space: nowrap;
+  }
   header nav {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 12px !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 16px;
   }
   header nav a {
-    flex: none !important;
+    flex: none;
+  }
+  header h1 { /* скрываем большой заголовок только на узких экранах */
+    display: none;
   }
 
-  /* 3) Карточки: 100% ширины с учётом отступов */
+  /* Контент */
+  section, .page-wrapper > section {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .block {
+    width: 100%;
+    padding: 12px;
+    margin: 0 auto 20px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Карточки */
   .card1, .card2, .card3, .card4 {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
   }
 
-  /* 4) Текст: no-break, чтобы не резал по буквам */
+  /* Текст */
   body, p, h1, h2, h3, h4, .container, .block {
-    word-break: keep-all !important;
-    overflow-wrap: break-word !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
-  /* 5) Спрятать большой заголовок сайта, если он мешает */
-  header h1 {
-    display: none !important;
-  }
-
-  /* 6) Иконки: одинаковый размер */
-  footer .social-icon img,
+  /* Социальные иконки и корзина */
+  .social-icons img,
   .icon-cart {
-    width: 32px !important;
-    height: 32px !important;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin: 0 8px;
   }
-}
-/* ==== Глобальный фикс для всего контента ==== */
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;        /* запретить горизонтальный скролл */
-}
 
-/* контейнер-обёртка для выравнивания и отступов */
-.page-wrapper {
-  max-width: 100%;
-  padding: 0 16px;           /* по 16px слева/справа */
-  box-sizing: border-box;
-  margin: 0 auto;
-}
+  /* Изображения продуктов */
+  .product-images {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
 
-/* ==== Заголовок (Logo) ==== */
-@media (max-width: 600px) {
-  header .logo {
-    font-size: 1.5rem;        /* чуть меньше на мобилках */
-    white-space: nowrap;      /* не разбивать слово на буквы */
+  /* Footer email */
+  .footer-email {
+    word-break: break-word;
+    white-space: normal;
+    text-align: center;
   }
 }
