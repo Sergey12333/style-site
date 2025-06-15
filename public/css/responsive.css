@@ -457,3 +457,39 @@ footer .icons img.icon { width: 24px; height: 24px; object-fit: contain; }
 /* Overflow fixes for cards */
 .card, .cards1 .card1 { overflow: hidden; box-sizing: border-box; }
 .card-description, .card-description1 { overflow-wrap: break-word; hyphens: auto; word-break: break-word; }
+
+/* Mobile fixes for pages brend, news, support */
+@media (max-width: 600px) {
+  /* General padding for content */
+  body, main, section {
+    padding: 0 16px !important;
+  }
+
+  /* Brend page: prevent text overflow */
+  .brend-text, .about-content {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* News page: smaller font and padding */
+  .news-item p {
+    font-size: 0.9rem;
+    margin: 12px 0;
+  }
+  .news-item {
+    padding: 0 8px;
+  }
+
+  /* Support page: center icons, limit size */
+  .support-icon img,
+  .support-icons img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .support-icons {
+    text-align: center;
+    padding: 0 8px;
+  }
+}
