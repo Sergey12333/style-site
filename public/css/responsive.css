@@ -41,3 +41,49 @@
     gap: 12px !important;
   }
 }
+/* ==== Mobile “single-column” overhaul ==== */
+@media (max-width: 480px) {
+  /* 1) Секция: одна колонка */
+  section {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 0 16px !important;
+  }
+
+  /* 2) Меню навигации: центр, перенос по строкам */
+  header nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 12px !important;
+  }
+  header nav a {
+    flex: none !important;
+  }
+
+  /* 3) Карточки: 100% ширины с учётом отступов */
+  .card1, .card2, .card3, .card4 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  /* 4) Текст: no-break, чтобы не резал по буквам */
+  body, p, h1, h2, h3, h4, .container, .block {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* 5) Спрятать большой заголовок сайта, если он мешает */
+  header h1 {
+    display: none !important;
+  }
+
+  /* 6) Иконки: одинаковый размер */
+  footer .social-icon img,
+  .icon-cart {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
