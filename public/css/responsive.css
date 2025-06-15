@@ -1,52 +1,74 @@
-/* responsive.css — v19 MOBILE FIXES */
+/* responsive.css — v20 MOBILE RESET & FIXES */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ОБЩИЕ ПРАВИЛА */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* ВСЕ ИЗОБРАЖЕНИЯ ДЛЯ АДАПТИВА */
+img, .block img, .cards img, .support-icons img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* МЕДИА-ЗАПРОС ДЛЯ МОБИЛОК */
 @media (max-width: 600px) {
 
-  /* 1) Блоки (brend, news и т.п.) */
-  .block {
-    display: flex;
-    flex-direction: column;
-    gap: 16px !important;       /* вместо 34px */
-    padding: 16px !important;   /* вместо 98px */
+  /* ====== ШАПКА ====== */
+  header {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 16px !important;
+    background: #fff !important;
+  }
+  .nav-left, .nav-right {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    margin: 5px 0 !important;
+  }
+  .nav-left a, .nav-right a, .nav-home {
+    font-size: 16px !important;
+    padding: 6px 8px !important;
+    white-space: nowrap !important;
+  }
+
+  /* ====== ОБЩИЕ СЕКЦИИ ====== */
+  section, footer, .block, .brend-text, .news-text, .support-section {
+    padding: 0 16px !important;
+  }
+
+  /* ====== ТЕКСТ ====== */
+  body, p, .block p, .brend-text p, .news-text p {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
   }
   .block h2 {
     font-size: 18px !important;
-    line-height: 1.2;
-  }
-  .block p {
-    font-size: 14px !important;
-    line-height: 1.4;
+    line-height: 1.2 !important;
   }
 
-  /* 2) Текстовые контейнеры “brend-text” и “news-text” */
-  .brend-text,
-  .news-text {
-    padding: 0 16px !important;
-    font-size: 14px !important;
-    line-height: 1.4 !important;
-  }
-
-  /* 3) Иконки на support-странице */
+  /* ====== ИКОНКИ SUPPORT ====== */
   .support-icons {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
     gap: 12px !important;
-    padding: 0 16px !important;
   }
   .support-icons img {
     max-width: 48px !important;
-    height: auto !important;
   }
-
-  /* 4) Отступы у всех секций и футера */
-  section,
-  footer {
-    padding: 0 16px !important;
-  }
-
-  /* 5) Основной текст страницы */
-  body {
-    font-size: 14px !important;
-  }
-
 }
