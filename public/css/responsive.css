@@ -1,124 +1,60 @@
-/* responsive.css — v20 MOBILE RESET & FIXES */
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-/* ОБЩИЕ ПРАВИЛА */
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* ВСЕ ИЗОБРАЖЕНИЯ ДЛЯ АДАПТИВА */
-img, .block img, .cards img, .support-icons img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* МЕДИА-ЗАПРОС ДЛЯ МОБИЛОК */
+/* Mobile responsive fixes */
 @media (max-width: 600px) {
-
-  /* ====== ШАПКА ====== */
-  header {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 10px 16px !important;
-    background: #fff !important;
-  }
-  .nav-left, .nav-right {
-    width: 100% !important;
+  /* Header navigation centered, hide site title */
+  header nav {
     display: flex !important;
     justify-content: center !important;
-    gap: 12px !important;
-    margin: 5px 0 !important;
+    gap: 16px !important;
   }
-  .nav-left a, .nav-right a, .nav-home {
-    font-size: 16px !important;
-    padding: 6px 8px !important;
-    white-space: nowrap !important;
-  }
-
-  /* ====== ОБЩИЕ СЕКЦИИ ====== */
-  section, footer, .block, .brend-text, .news-text, .support-section {
-    padding: 0 16px !important;
-  }
-
-  /* ====== ТЕКСТ ====== */
-  body, p, .block p, .brend-text p, .news-text p {
-    font-size: 14px !important;
-    line-height: 1.4 !important;
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
-  }
-  .block h2 {
-    font-size: 18px !important;
-    line-height: 1.2 !important;
-  }
-
-  /* ====== ИКОНКИ SUPPORT ====== */
-  .support-icons {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 12px !important;
-  }
-  .support-icons img {
-    max-width: 48px !important;
-  }
-}
-@media (max-width: 600px) {
-
-  /* 1) Спрятать название сайта, если оно в <header> появляется */
-  .site-title,
-  header .logo-text,
-  header h1 {
+  header .site-title {
     display: none !important;
   }
-
-  /* 2) Запретить столбик для e-mail — не дать переносить буквы */
-  .contact-email,
-  .footer .contact-email,
-  .email-link {
-    white-space: nowrap !important;
-    overflow-x: auto !important;
-    display: inline-block !important;
+  /* Cart icon reposition */
+  header .cart-icon, 
+  header .btn-cart {
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
   }
 
-  /* 3) Выровнять иконку корзины */
-  .nav-right .cart-icon,
-  .btn-cart,
-  .header-cart {
-    margin: 0 !important;
-    align-self: center !important;
-  }
-}
-@media (max-width: 600px) {
-  /* Контейнеру даём горизонтальные padding */
-  section .container {
-    padding: 0 16px !important;
-  }
-
-  /* Перестраиваем .block в колонку и центрируем */
+  /* Stack cards and center */
   section .block {
+    display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     gap: 16px !important;
   }
-
-  /* Все прямые дети .block растягиваем на всю ширину контейнера */
   section .block > * {
     width: 100% !important;
     box-sizing: border-box !important;
   }
 
-  /* Чуть больше пространства между секциями */
-  section + section {
-    margin-top: 32px !important;
+  /* Fix image stacking in galleries */
+  .image-gallery img, 
+  .gallery img {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 16px !important;
+    object-fit: cover !important;
+  }
+
+  /* Uniform social icons */
+  .footer .social-icons img {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain !important;
+    margin: 0 8px !important;
+  }
+
+  /* Prevent email text from splitting */
+  .footer .email {
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+
+  /* Container padding */
+  section .container {
+    padding: 0 16px !important;
   }
 }
