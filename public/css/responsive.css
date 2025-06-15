@@ -1,60 +1,136 @@
+/* public/css/responsive.css */
 
-/* Mobile responsive fixes */
-@media (max-width: 600px) {
-  /* Header navigation centered, hide site title */
-  header nav {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 16px !important;
-  }
-  header .site-title {
-    display: none !important;
-  }
-  /* Cart icon reposition */
-  header .cart-icon, 
-  header .btn-cart {
-    position: absolute !important;
-    top: 16px !important;
-    right: 16px !important;
-  }
+/* Сбрасываем базовые отступы */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* Stack cards and center */
-  section .block {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 16px !important;
-  }
-  section .block > * {
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
+/* Общие для body */
+body {
+  font-size: 16px; /* чуть меньше, чтобы не лезло за экран */
+  line-height: 1.4;
+  background: #f5f5f5;
+}
 
-  /* Fix image stacking in galleries */
-  .image-gallery img, 
-  .gallery img {
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 16px !important;
-    object-fit: cover !important;
-  }
+/* Шапка */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  /* Uniform social icons */
-  .footer .social-icons img {
-    width: 40px !important;
-    height: 40px !important;
-    object-fit: contain !important;
-    margin: 0 8px !important;
-  }
+/* Скрываем текст лого на мобильных */
+header .logo-text {
+  display: none;
+}
 
-  /* Prevent email text from splitting */
-  .footer .email {
-    white-space: nowrap !important;
-    display: inline-block !important;
-  }
+/* Меню */
+nav.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-  /* Container padding */
-  section .container {
-    padding: 0 16px !important;
+/* Кнопка личного кабинета */
+header .btn-account {
+  order: 2;
+  margin-top: 8px;
+}
+
+/* Иконка корзины */
+header .icon-cart {
+  position: relative;
+  top: 0;
+  margin-left: 8px;
+}
+
+/* Главный блок контента */
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+}
+
+/* Карточки [01], [02], [03] */
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  padding: 16px;
+  border: 1px solid #b090a0;
+  border-radius: 8px;
+  background: #fff;
+  width: 100%;
+}
+
+/* Убираем «наложение» кружков */
+.block .decor-circle {
+  position: static;
+  transform: none;
+  margin-bottom: 8px;
+}
+
+/* Фотографии товаров */
+.images-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0 auto;
+}
+.images-row img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Иконки соцсетей и прочие в footer */
+footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+footer .social-icons img {
+  max-width: 32px;
+  height: auto;
+}
+
+/* Блок «Контакты» */
+footer .contact-info {
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 16px;
+}
+footer .contact-info .email {
+  display: inline-block;
+  word-break: normal; /* убираем запись в столбик */
+  white-space: nowrap;
+}
+
+/* Медиазапрос для супер-маленьких экранов */
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
+  header {
+    padding: 8px;
+  }
+  nav.menu {
+    gap: 8px;
+  }
+  .btn-account {
+    font-size: 14px;
   }
 }
