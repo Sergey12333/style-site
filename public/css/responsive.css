@@ -1,48 +1,33 @@
 /* responsive.css */
 
-/* 1) Общие сбросы */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* 2) Запрет горизонтальной прокрутки */
 html, body {
   overflow-x: hidden;
 }
 
-/* 3) Базовый контейнер */
-.page-wrapper {
+.block {
   width: 100%;
   padding: 0 16px;
   margin: 0 auto;
 }
 
-/* 4) Блок с текстом “О нас” и т.п. */
-.block {
-  width: 100%;
-  padding: 0 16px;      /* внутренние отступы слева/справа */
-  margin: 0 auto;
-}
-
-/* 5) Карточки */
 .card1, .card2, .card3, .card4 {
   width: 100%;
-  max-width: 100%;
   margin: 0 auto 16px;
-  padding: 16px;        /* отступ внутри рамки */
+  padding: 16px;
   box-sizing: border-box;
 }
 
-/* 6) Адаптивные стили для экранов до 480px */
 @media (max-width: 480px) {
-  /* секция */
   section {
     padding: 0 12px;
   }
 
-  /* навигация */
   header nav {
     display: flex;
     flex-wrap: wrap;
@@ -50,12 +35,10 @@ html, body {
     gap: 12px;
   }
 
-  /* основной блок текста */
   .block {
     padding: 0 12px !important;
   }
 
-  /* карточки: однофайловый режим */
   .container {
     display: flex;
     flex-direction: column;
@@ -66,15 +49,17 @@ html, body {
   .card1, .card2, .card3, .card4 {
     width: 100%;
     padding: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 
-  /* текст внутри карточек */
   .card1 p, .card2 p, .card3 p, .card4 p {
+    /* доп. страховка */
     overflow-wrap: break-word;
     word-break: normal;
   }
 
-  /* прячем лишний заголовок (если надо) */
   header h1 {
     display: none;
   }
