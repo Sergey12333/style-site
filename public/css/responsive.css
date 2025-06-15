@@ -1,6 +1,6 @@
 /* public/css/responsive.css */
 
-/* Сбрасываем базовые отступы */
+/* 1. Сбрасываем базовые отступы и убираем горизонтальную прокрутку */
 *,
 *::before,
 *::after {
@@ -8,129 +8,124 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body {
+  overflow-x: hidden;
+}
 
-/* Общие для body */
+/* 2. Общие стили */
 body {
-  font-size: 16px; /* чуть меньше, чтобы не лезло за экран */
+  font-family: serif;
+  font-size: 16px;
   line-height: 1.4;
   background: #f5f5f5;
 }
 
-/* Шапка */
+/* 3. Шапка */
 header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  z-index: 100;
+}
+header .container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
-
-/* Скрываем текст лого на мобильных */
-header .logo-text {
-  display: none;
-}
-
-/* Меню */
-nav.menu {
+header nav {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  overflow-x: auto;
 }
-
-/* Кнопка личного кабинета */
+header nav a {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+header .logo-text {
+  display: none; /* убрали крупное название на мобилках */
+}
+header .icon-cart {
+  order: 1;
+  margin-right: 8px;
+}
 header .btn-account {
   order: 2;
-  margin-top: 8px;
+  margin: 8px 0;
 }
 
-/* Иконка корзины */
-header .icon-cart {
-  position: relative;
-  top: 0;
-  margin-left: 8px;
-}
-
-/* Главный блок контента */
+/* 4. Секция с карточками */
 section {
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 16px;
 }
-
-/* Карточки [01], [02], [03] */
 .block {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  text-align: left;
+  position: relative;
   padding: 16px;
   border: 1px solid #b090a0;
   border-radius: 8px;
   background: #fff;
   width: 100%;
 }
-
-/* Убираем «наложение» кружков */
 .block .decor-circle {
-  position: static;
-  transform: none;
+  position: static !important;
+  transform: none !important;
   margin-bottom: 8px;
 }
+.block h2,
+.block p {
+  word-wrap: break-word;
+  font-size: 1rem;
+}
 
-/* Фотографии товаров */
+/* 5. Карточки изображений */
 .images-row {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
-  margin: 0 auto;
 }
 .images-row img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  border-radius: 8px;
 }
 
-/* Иконки соцсетей и прочие в footer */
+/* 6. Футер */
+footer {
+  background: #fff;
+  padding: 16px 0;
+  text-align: center;
+}
+footer .contact-info {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+footer .contact-info .email {
+  display: inline-block;
+  white-space: nowrap;
+}
 footer .social-icons {
   display: flex;
   justify-content: center;
   gap: 16px;
-  padding: 16px;
 }
 footer .social-icons img {
-  max-width: 32px;
-  height: auto;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
-/* Блок «Контакты» */
-footer .contact-info {
-  font-size: 14px;
-  text-align: center;
-  padding: 8px 16px;
-}
-footer .contact-info .email {
-  display: inline-block;
-  word-break: normal; /* убираем запись в столбик */
-  white-space: nowrap;
-}
-
-/* Медиазапрос для супер-маленьких экранов */
+/* 7. Мелкие правки для очень узких экранов */
 @media (max-width: 360px) {
-  body {
-    font-size: 14px;
-  }
-  header {
-    padding: 8px;
-  }
-  nav.menu {
-    gap: 8px;
-  }
-  .btn-account {
-    font-size: 14px;
-  }
+  body { font-size: 14px; }
+  header nav { gap: 8px; }
+  .btn-account { font-size: 14px; }
+  .footer .contact-info { font-size: 12px; }
 }
