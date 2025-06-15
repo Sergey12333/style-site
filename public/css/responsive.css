@@ -72,3 +72,53 @@ img, .block img, .cards img, .support-icons img {
     max-width: 48px !important;
   }
 }
+@media (max-width: 600px) {
+
+  /* 1) Спрятать название сайта, если оно в <header> появляется */
+  .site-title,
+  header .logo-text,
+  header h1 {
+    display: none !important;
+  }
+
+  /* 2) Запретить столбик для e-mail — не дать переносить буквы */
+  .contact-email,
+  .footer .contact-email,
+  .email-link {
+    white-space: nowrap !important;
+    overflow-x: auto !important;
+    display: inline-block !important;
+  }
+
+  /* 3) Выровнять иконку корзины */
+  .nav-right .cart-icon,
+  .btn-cart,
+  .header-cart {
+    margin: 0 !important;
+    align-self: center !important;
+  }
+}
+@media (max-width: 600px) {
+  /* Контейнеру даём горизонтальные padding */
+  section .container {
+    padding: 0 16px !important;
+  }
+
+  /* Перестраиваем .block в колонку и центрируем */
+  section .block {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+
+  /* Все прямые дети .block растягиваем на всю ширину контейнера */
+  section .block > * {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Чуть больше пространства между секциями */
+  section + section {
+    margin-top: 32px !important;
+  }
+}
