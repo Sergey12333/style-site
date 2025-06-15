@@ -5,41 +5,10 @@
   padding: 0;
 }
 
-@media (max-width: 480px) {
-  .block {
-    padding: 12px !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  .container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px !important;
-    padding: 0 12px !important;
-  }
-}
-
-/* контейнер-обёртка для выравнивания и отступов */
-.page-wrapper {
-  max-width: 100%;
-  padding: 0 16px;           /* по 16px слева/справа */
-  box-sizing: border-box;
-  margin: 0 auto;
-}
-
-/* ==== Заголовок (Logo) ==== */
-@media (max-width: 600px) {
-  header .logo {
-    font-size: 1.5rem;        /* чуть меньше на мобилках */
-    white-space: nowrap;      /* не разбивать слово на буквы */
-  }
-}
-
-/* ==== Общие мобильные правки ==== */
+/* Общие мобильные правки */
 @media (max-width: 768px) {
   body {
-    font-size: 16px;          /* чуть меньше базовый размер */
+    font-size: 16px;
     padding: 0;
     margin: 0;
   }
@@ -59,11 +28,47 @@
   }
 }
 
-/* ==== Карточки в блоке “плюсики” ==== */
+/* Обёртка страницы */
+.page-wrapper {
+  max-width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* Заголовок (Logo) */
+@media (max-width: 600px) {
+  header .logo {
+    font-size: 1.5rem;
+    white-space: nowrap;
+  }
+}
+
+/* Корректная обёртка блоков карточек */
+@media (max-width: 480px) {
+  .block {
+    padding: 12px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+  .container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    padding: 0 12px !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* Карточки в блоке */
 @media (max-width: 480px) {
   .card1, .card2, .card3, .card4 {
     width: 100% !important;
+    max-width: 100% !important;
     padding: 16px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
   }
   .card1 p, .card2 p, .card3 p, .card4 p {
     font-size: 0.9rem;
@@ -71,7 +76,7 @@
   }
 }
 
-/* ==== Соцсети в footer ==== */
+/* Соцсети в footer */
 @media (max-width: 480px) {
   .footer .social-icons {
     display: flex;
@@ -84,13 +89,13 @@
   }
 }
 
-/* ==== Предотвращаем вертикальное смещение текста ==== */
+/* Предотвращаем вертикальное смещение текста */
 h1, h2, h3, h4, h5, h6, p {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
-/* ==== Кнопка “Личный кабинет” ==== */
+/* Кнопка “Личный кабинет” */
 @media (max-width: 480px) {
   .btn-profile {
     width: 100%;
@@ -99,10 +104,9 @@ h1, h2, h3, h4, h5, h6, p {
   }
 }
 
-/* ==== Отступы контента ==== */
+/* Отступы секций */
 @media (max-width: 480px) {
   section {
     padding: 16px 0 !important;
   }
 }
-
