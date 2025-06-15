@@ -142,3 +142,13 @@ h1, h2, h3, h4, h5, h6, p {
 .news-item {
   margin-bottom: 24px; /* отступ между карточками */
 }
+@media (max-width: 480px) {
+  /* Сводим к одному столбцу, но теперь каждая картинка в секции
+     будет занимать 100% ширины, сохраняя пропорции и не наезжая */
+  section img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 12px !important;
+  }
+}
