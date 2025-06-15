@@ -433,3 +433,27 @@ img {
     font-size: 1rem !important;
   }
 }
+
+/* Responsive adjustments */
+
+/* Global font size reduction */
+html { font-size: 14px; line-height: 1.5; }
+body { font-size: 1rem; color: #4a4a4a; }
+
+/* Profile menu dropdown */
+.profile-menu { position: relative; display: inline-block; }
+.profile-menu .btn-profile { cursor: pointer; padding: 8px 12px; text-decoration: none; border: 1px solid #8b5f65; border-radius: 30px; color: #8b5f65; background: transparent; }
+.profile-menu .dropdown { position: absolute; top: 100%; right: 0; list-style: none; margin: 0; padding: 0; background: white; border: 1px solid #ddd; border-radius: 4px; min-width: 160px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: none; z-index: 100; }
+.profile-menu .dropdown li a { display: block; padding: 8px 12px; text-decoration: none; color: #333; }
+.profile-menu .dropdown li a:hover { background: #f5f5f5; }
+.profile-menu:hover .dropdown { display: block; }
+
+/* Footer and icons */
+footer { padding: 20px 0; font-size: 0.85rem; background: #fafafa; }
+footer .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 12px; }
+footer .icons { display: flex; justify-content: center; gap: 16px; margin-top: 8px; }
+footer .icons img.icon { width: 24px; height: 24px; object-fit: contain; }
+
+/* Overflow fixes for cards */
+.card, .cards1 .card1 { overflow: hidden; box-sizing: border-box; }
+.card-description, .card-description1 { overflow-wrap: break-word; hyphens: auto; word-break: break-word; }

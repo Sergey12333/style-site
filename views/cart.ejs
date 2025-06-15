@@ -17,14 +17,24 @@
 <body>
     <header>
         <div class="nav-left">
-            <a href="/brend">О нас</a>
-            <a href="/news">Новости</a>
-            <a href="/support">Помощь</a>
-            <a href="/product/catalog">Каталог</a>
-        </div>
-        <div class="site-title">STYLE</div>
-        <div class="nav-right">
-            <div class="cart-icon"><a href="/product/cart"><img src="/image/shop.svg" alt="cart"/></a></div>
+    <a href="/" class="nav-home">Главная</a>
+    <a href="/brend">О нас</a>
+    <a href="/news">Новости</a>
+    <a href="/support">Помощь</a>
+    <a href="/product/catalog">Каталог</a>
+</div>
+<div class="site-title">STYLE</div>
+<div class="nav-right">
+    <a href="/product/cart" class="cart-icon"><img src="/image/shop.svg" alt="Корзина"/></a>
+    <div class="profile-menu">
+      <a href="/auth/profile" class="btn-profile">Личный кабинет ▾</a>
+      <ul class="dropdown">
+        <li><a href="/auth/profile">Профиль</a></li>
+        <li><a href="/auth/my-ads">Мои объявления</a></li>
+        <li><a href="/auth/logout">Выйти</a></li>
+      </ul>
+    </div>
+</div>
             <a href="/auth/profile" class="btn-profile">Личный кабинет</a>
         </div>
     </header>
