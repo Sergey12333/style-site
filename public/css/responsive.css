@@ -1,6 +1,4 @@
-/* ===================================================================
-   1. СБРОС ОТСТУПОВ И BOX-SIZING
-=================================================================== */
+/* 1. Сброс отступов и box-sizing */
 *,
 *::before,
 *::after {
@@ -9,9 +7,7 @@
   box-sizing: border-box;
 }
 
-/* ===================================================================
-   2. БАЗОВЫЕ СТИЛИ
-=================================================================== */
+/* 2. Базовые стили */
 body {
   font-family: 'GildaDisplay-Regular.ttf', serif;
   background-color: #f7f6f4;
@@ -20,9 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ===================================================================
-   3. КОНТЕЙНЕРЫ
-=================================================================== */
+/* 3. Контейнер */
 .container,
 section.news .container {
   display: flex;
@@ -32,9 +26,7 @@ section.news .container {
   width: 100%;
 }
 
-/* ===================================================================
-   4. КАРТОЧКИ
-=================================================================== */
+/* 4. Карточки */
 [class^="card"],
 .cir {
   background: #fff;
@@ -42,14 +34,11 @@ section.news .container {
   border-radius: 12px;
   padding: 24px;
   position: relative;
-  /* убрали overflow:hidden */
-  /* overflow: hidden; */
+  /* убрано overflow:hidden */
   flex: 1 1 calc(50% - 20px);
   max-width: calc(50% - 20px);
   margin-bottom: 20px;
 }
-
-/* чтобы текст внутри нормально переносился */
 [class^="card"] h2,
 [class^="card"] p,
 .cir h2,
@@ -58,9 +47,7 @@ section.news .container {
   white-space: normal;
 }
 
-/* ===================================================================
-   5. ИЗОБРАЖЕНИЯ В НОВОСТЯХ
-=================================================================== */
+/* 5. Картинки в новостях */
 section.news img {
   display: block;
   width: 100%;
@@ -68,9 +55,7 @@ section.news img {
   border-radius: 12px;
 }
 
-/* ===================================================================
-   6. ПЛАНШЕТЫ
-=================================================================== */
+/* 6. Планшеты */
 @media (max-width: 768px) {
   [class^="card"],
   .cir {
@@ -79,10 +64,7 @@ section.news img {
   }
 }
 
-/* ===================================================================
-   7. СМАРТФОНЫ
-   — один столбец, карточки 100% ширины, текст не обрезается
-=================================================================== */
+/* 7. Смартфоны */
 @media (max-width: 480px) {
   .container,
   section.news .container {
@@ -90,13 +72,15 @@ section.news img {
     flex-wrap: nowrap !important;
     gap: 16px !important;
     padding: 0 16px !important;
+    overflow-x: hidden !important;
   }
 
   [class^="card"],
   .cir {
-    flex: 1 1 100% !important;
+    flex: none !important;
+    width: 100% !important;
     max-width: 100% !important;
     margin: 0 0 16px !important;
-    overflow: visible !important; /* позволяем тексту выходить за рамки, если нужно */
+    overflow: visible !important;
   }
 }
