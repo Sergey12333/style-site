@@ -2,59 +2,92 @@
 
 .cart-section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
+/* Карточка */
 .cart-section .card {
   background-color: #fff;
   border: 1px solid #967085;
   border-radius: 16px;
   width: 100%;
-  max-width: 350px;
-  padding: 16px;
+  max-width: 400px;
+  padding: 24px;
   box-sizing: border-box;
-  /* убрали overflow: hidden чтобы карточки сами увеличивались по высоте */
+  overflow: visible;       /* чтобы контент не обрезался */
+  display: flex;
+  flex-direction: column;
 }
 
+/* Заголовок */
 .cart-section .card h3 {
-  margin: 0 0 8px;
-  font-size: 1.5rem;
+  margin: 0 0 12px;
+  font-size: 1.75rem;
   line-height: 1.2;
   word-break: break-word;
 }
 
+/* Текст */
 .cart-section .card p {
   margin: 0;
   font-size: 1rem;
   line-height: 1.4;
   word-break: break-word;
+  white-space: normal;     /* строгий перенос */
   hyphens: auto;
 }
 
-/* Если нужно дополнительное пространство под конец текста */
+/* Номер карточки */
+.cart-section .card .card-number {
+  align-self: flex-end;
+  font-size: 0.9rem;
+  color: #967085;
+  margin-top: 8px;
+}
+
+/* Удаляем декоративную “карусельную” картинку-клипарт */
+.cart-section .card .card-clip {
+  display: none !important;
+}
+
+/* Отступ снизу последней */
 .cart-section .card:last-child {
   margin-bottom: 20px;
 }
 
-@media (max-width: 480px) {
+/* Адаптив */
+@media (max-width: 768px) {
   .cart-section {
-    padding: 10px;
-    gap: 12px;
+    gap: 16px;
+    padding: 16px;
   }
-
   .cart-section .card {
-    padding: 12px;
+    padding: 16px;
     max-width: 100%;
   }
+  .cart-section .card h3 {
+    font-size: 1.5rem;
+  }
+  .cart-section .card p {
+    font-size: 0.95rem;
+  }
+}
 
+@media (max-width: 480px) {
+  .cart-section {
+    gap: 12px;
+    padding: 12px;
+  }
+  .cart-section .card {
+    padding: 12px;
+  }
   .cart-section .card h3 {
     font-size: 1.25rem;
   }
-
   .cart-section .card p {
     font-size: 0.9rem;
   }
