@@ -1,110 +1,97 @@
-/* Сброс отступов и box-sizing по умолчанию */
+/* responsive.css - полный файл */
+
+/* Сброс отступов */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Базовые стили карточек (desktop) */
-.card1,
-.card2,
-.card3,
-.card4,
-.cir {
+/* Главный блок страницы */
+section {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 32px;
-  border: 1px solid #B99EA3;
-  border-radius: 12px;
-  background: #fff;
-  position: relative;
+  align-items: center;
+  width: 100%;       /* расширяем до полной ширины */
+  max-width: 100%;   /* предотвращаем горизонтальный скролл */
 }
 
-/* Общий контейнер карточек (desktop) */
+/* Виджет карточек */
 .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  padding: 40px;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;   /* адаптация под экран */
 }
 
-/* Заголовки внутри карточек */
-.card1 h2,
-.card2 h2,
-.card3 h2,
-.card4 h2,
-.cir h2 {
-  font-size: 1.5rem;
-  line-height: 1.2;
-  color: #545454;
+/* Стиль одной карточки */
+.card {
+  background: #fff;
+  border: 1px solid #967085;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(50% - 40px);
+  max-width: calc(50% - 40px);
+  min-width: 280px;
+  /* убрали overflow hidden, чтобы текст внутри не обрезался */
+  overflow: visible;
 }
 
-/* Параграфы внутри */
-.card1 p,
-.card2 p,
-.card3 p,
-.card4 p,
-.cir p {
-  font-size: 1rem;
+.card h2,
+.card h3 {
+  font-weight: normal;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+
+.card p {
+  flex: 1 0 auto;
   line-height: 1.5;
-  color: #545454;
+  word-break: normal;
+  overflow-wrap: break-word;
+  margin-bottom: 12px; /* добавили отступ снизу */
 }
 
-/* --- MOBILE FIXES --- */
-@media (max-width: 480px) {
-
-  /* Контейнер секций и новостей */
-  .container,
-  section.news .container {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 16px !important;
-    margin: 0 auto !important;
-  }
-
-  /* Все карточки и круглые элементы */
-  [class^="card"],
-  .cir {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 0 24px !important;
-    padding: 16px !important;
-    border-radius: 12px !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    position: static !important;
-  }
-
-  /* Перенос текста внутри карточек */
-  [class^="card"] h2,
-  [class^="card"] p,
-  .cir h2,
-  .cir p {
-    word-wrap: break-word !important;
-    white-space: normal !important;
-  }
-
-  /* Изображения в новостях */
-  section.news img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 16px !important;
-    border-radius: 12px !important;
-  }
-
-  /* Скрываем левые/правые отступы html/body */
-  html, body {
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow-x: hidden !important;
-  }
+.card .number {
+  align-self: flex-end;
+  color: #967085;
+  font-size: 0.9rem;
+  margin-top: 12px;
 }
-/* Скрываем стилизованную вращающуюся карточку */
-.cir {
+
+/* Прячем декоративный элемент */
+.card .decor {
   display: none !important;
 }
 
+/* --- Адаптив --- */
+
+/* Планшеты и ниже - одна колонка */
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Мобильные (меньше 480px) */
+@media (max-width: 480px) {
+  .container {
+    gap: 16px;
+    padding: 16px;
+  }
+  .card {
+    padding: 16px;
+  }
+  .card h2, .card h3 {
+    font-size: 1.25rem;
+  }
+  .card p {
+    font-size: 0.95rem;
+  }
+}
