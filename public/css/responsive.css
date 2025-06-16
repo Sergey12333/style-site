@@ -1,154 +1,97 @@
-/* Updated responsive fixes */
-*, *::before, *::after {
-  box-sizing: border-box;
+/* ===================================================================
+   Сброс отступов и box-sizing
+=================================================================== */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
-}
-
-/* Общие мобильные правки */
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-    padding: 0;
-    margin: 0;
-  }
-  header nav {
-    flex-direction: column;
-    align-items: center;
-  }
-  header nav a {
-    padding: 10px 0;
-    width: 100%;
-    text-align: center;
-  }
-  header .cart-icon {
-    position: relative;
-    top: 0;
-    margin: 8px 0;
-  }
-}
-
-/* Обёртка страницы */
-.page-wrapper {
-  max-width: 100%;
-  padding: 0 16px;
   box-sizing: border-box;
-  margin: 0 auto;
 }
 
-/* Заголовок (Logo) */
-@media (max-width: 600px) {
-  header .logo {
-    font-size: 1.5rem;
-    white-space: nowrap;
+/* ===================================================================
+   Базовые стили текста
+=================================================================== */
+body {
+  font-family: 'GildaDisplay-Regular.ttf', serif;
+  line-height: 1.6;
+  color: #4a4a4a;
+  background: #f7f6f4;
+}
+
+/* ===================================================================
+   Глобальный контейнер
+=================================================================== */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* ===================================================================
+   Карточки преимуществ (пример)
+   .card1, .card2, .card3, .card4, .cir и т.п.
+=================================================================== */
+.card1,
+.card2,
+.card3,
+.card4,
+.cir {
+  flex: 1 1 calc(50% - 20px);
+  border: 1px solid #9b7a88;
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  background: #fff;
+}
+
+/* ===================================================================
+   Новостные карточки (пример селектора section.news .container)
+=================================================================== */
+section.news .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px;
+}
+
+/* ===================================================================
+   Медиазапросы
+=================================================================== */
+@media (max-width: 768px) {
+  /* На планшетах: две карточки в ряд */
+  .card1,
+  .card2,
+  .card3,
+  .card4,
+  .cir {
+    flex: 1 1 calc(50% - 20px);
   }
 }
 
-/* Корректная обёртка блоков карточек */
 @media (max-width: 480px) {
-  .block {
-    padding: 12px !important;
-    margin: 0 auto !important;
-    width: 100% !important;
-  }
+  /* На смартфонах: одноколоночный стек для всех контейнеров */
   .container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 20px !important;
+    gap: 16px !important;
     padding: 0 12px !important;
-    width: 100% !important;
-    overflow-x: hidden !important;
-  }
-}
-
-/* Карточки в блоке */
-@media (max-width: 480px) {
-  .card1, .card2, .card3, .card4 {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 16px !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-  }
-  .card1 p, .card2 p, .card3 p, .card4 p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-}
-
-/* Соцсети в footer */
-@media (max-width: 480px) {
-  .footer .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  }
-  .footer .social-icons img {
-    width: 32px;
-    height: 32px;
-  }
-}
-
-/* Предотвращаем вертикальное смещение текста */
-h1, h2, h3, h4, h5, h6, p {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-/* Кнопка “Личный кабинет” */
-@media (max-width: 480px) {
-  .btn-profile {
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-  }
-}
-
-/* Отступы секций */
-@media (max-width: 480px) {
-  section {
-    padding: 16px 0 !important;
-  }
-}
-/* Гарантируем, что текст внутри карточек не выйдет за рамки */
-@media (max-width: 480px) {
-  .card1, .card2, .card3, .card4 {
-    position: relative;
-    overflow: hidden;      /* Обрезаем всё что вне рамки */
-    word-break: break-word; /* Переносим длинные слова */
-    hyphens: auto;         /* Расстановка переносов (если поддерживается) */
   }
 
-  .card1 p, .card2 p, .card3 p, .card4 p {
-    display: block;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
+  /* Если нужен отдельный стиль для новостей: */
+  section.news .container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    padding: 0 12px !important;
   }
-}
-/* Разрешаем картинкам занимать всю ширину своего контейнера и ставим отступы между ними */
-.news-list img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-bottom: 16px; /* отступ между картинками */
-}
 
-/* Если у вас карточки новостей упакованы в отдельные .news-item, то так ещё надёжнее: */
-.news-item {
-  margin-bottom: 24px; /* отступ между карточками */
-}
-@media (max-width: 480px) {
-  /* Сводим к одному столбцу, но теперь каждая картинка в секции
-     будет занимать 100% ширины, сохраняя пропорции и не наезжая */
-  section img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 12px !important;
+  /* Заголовки внутри карточек: допускаем перенос слов, но не выезд за границы */
+  .card1 h2,
+  .card2 h2,
+  .card3 h2,
+  .card4 h2 {
+    word-break: break-word;
   }
 }
