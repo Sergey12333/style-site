@@ -1,86 +1,105 @@
-/* 1. Сброс отступов и box-sizing */
-*,
-*::before,
-*::after {
+/* Сброс отступов и box-sizing по умолчанию */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 2. Базовые стили */
-body {
-  font-family: 'GildaDisplay-Regular.ttf', serif;
-  background-color: #f7f6f4;
-  color: #4a4a4a;
-  line-height: 1.6;
-  overflow-x: hidden;
+/* Базовые стили карточек (desktop) */
+.card1,
+.card2,
+.card3,
+.card4,
+.cir {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  border: 1px solid #B99EA3;
+  border-radius: 12px;
+  background: #fff;
+  position: relative;
 }
 
-/* 3. Контейнер */
-.container,
-section.news .container {
+/* Общий контейнер карточек (desktop) */
+.container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  width: 100%;
+  gap: 24px;
+  padding: 40px;
 }
 
-/* 4. Карточки */
-[class^="card"],
-.cir {
-  background: #fff;
-  border: 1px solid #9b7a88;
-  border-radius: 12px;
-  padding: 24px;
-  position: relative;
-  /* убрано overflow:hidden */
-  flex: 1 1 calc(50% - 20px);
-  max-width: calc(50% - 20px);
-  margin-bottom: 20px;
+/* Заголовки внутри карточек */
+.card1 h2,
+.card2 h2,
+.card3 h2,
+.card4 h2,
+.cir h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: #545454;
 }
-[class^="card"] h2,
-[class^="card"] p,
-.cir h2,
+
+/* Параграфы внутри */
+.card1 p,
+.card2 p,
+.card3 p,
+.card4 p,
 .cir p {
-  word-break: break-word;
-  white-space: normal;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #545454;
 }
 
-/* 5. Картинки в новостях */
-section.news img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-/* 6. Планшеты */
-@media (max-width: 768px) {
-  [class^="card"],
-  .cir {
-    flex: 1 1 calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
-}
-
-/* 7. Смартфоны */
+/* --- MOBILE FIXES --- */
 @media (max-width: 480px) {
+
+  /* Контейнер секций и новостей */
   .container,
   section.news .container {
-    flex-direction: column !important;
-    flex-wrap: nowrap !important;
-    gap: 16px !important;
-    padding: 0 16px !important;
-    overflow-x: hidden !important;
-  }
-
-  [class^="card"],
-  .cir {
-    flex: none !important;
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 0 16px !important;
-    overflow: visible !important;
+    padding: 0 16px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Все карточки и круглые элементы */
+  [class^="card"],
+  .cir {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 24px !important;
+    padding: 16px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    position: static !important;
+  }
+
+  /* Перенос текста внутри карточек */
+  [class^="card"] h2,
+  [class^="card"] p,
+  .cir h2,
+  .cir p {
+    word-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  /* Изображения в новостях */
+  section.news img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 16px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Скрываем левые/правые отступы html/body */
+  html, body {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
   }
 }
