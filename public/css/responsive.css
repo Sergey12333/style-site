@@ -103,3 +103,8 @@
     overflow-x: hidden !important;
   }
 }
+/* Скрываем стилизованную вращающуюся карточку */
+.cir {
+  display: none !important;
+}
+
