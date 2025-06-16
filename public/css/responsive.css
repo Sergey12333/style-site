@@ -7,11 +7,11 @@
   box-sizing: border-box;
 }
 
-/* 2. Базовая секция: отступы по горизонтали для предотвращения выхода за экран */
+/* 2. Базовая секция: отступы по горизонтали, скрытие переполнения */
 section {
   width: 100%;
-  padding: 0 16px; /* горизонтальные поля */
-  max-width: 100%;
+  padding: 0 16px;
+  overflow-x: hidden;
 }
 
 /* 3. Контейнер карточек: grid с центрацией и ограничением по ширине */
@@ -22,7 +22,7 @@ section {
   padding: 20px 0;
   max-width: 100%;
   justify-content: center;
-  justify-items: center;
+  justify-items: stretch;
 }
 
 /* 4. Оформление карточки: адаптируется под экран */
@@ -69,15 +69,18 @@ section {
 /* --- Адаптив для планшетов и мобильных --- */
 @media (max-width: 1024px) {
   .container {
-    grid-template-columns: 1fr;
-    padding: 16px 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 16px;
+    padding: 16px 0;
   }
 }
 
 @media (max-width: 480px) {
   section {
     padding: 0 12px;
+  }
+  .container {
+    gap: 12px;
   }
   .card {
     padding: 16px;
