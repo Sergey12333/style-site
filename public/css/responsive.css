@@ -24,8 +24,9 @@ section {
   padding: 20px;
   width: 100%;
   justify-content: center;
-  justify-items: start; /* выравнивание по началу контейнера */
+  justify-items: center; /* исправлено: центрируем карточки, чтобы не уходили влево */
 }
+
 
 /* 4. Оформление карточки */
 .card {
