@@ -7,28 +7,25 @@
   box-sizing: border-box;
 }
 
-/* 2. Базовая секция */
+/* 2. Базовая секция: отступы по горизонтали для предотвращения выхода за экран */
 section {
   width: 100%;
+  padding: 0 16px; /* горизонтальные поля */
   max-width: 100%;
-  padding: 0;
 }
 
-/* 3. Контейнер карточек */
-/*   - используем grid для автоматического подбора колонок
-     - justify-items: start предотвращает смещение карточек за границу */
+/* 3. Контейнер карточек: grid с центрацией и ограничением по ширине */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  padding: 20px;
-  width: 100%;
+  padding: 20px 0;
+  max-width: 100%;
   justify-content: center;
-  justify-items: center; /* исправлено: центрируем карточки, чтобы не уходили влево */
+  justify-items: center;
 }
 
-
-/* 4. Оформление карточки */
+/* 4. Оформление карточки: адаптируется под экран */
 .card {
   width: 100%;
   max-width: 600px;
@@ -71,15 +68,17 @@ section {
 
 /* --- Адаптив для планшетов и мобильных --- */
 @media (max-width: 1024px) {
-  /* 1 колонка */
   .container {
     grid-template-columns: 1fr;
-    padding: 16px;
+    padding: 16px 0;
     gap: 16px;
   }
 }
 
 @media (max-width: 480px) {
+  section {
+    padding: 0 12px;
+  }
   .card {
     padding: 16px;
   }
