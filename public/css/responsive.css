@@ -1,30 +1,36 @@
-/* responsive.css - возвращение к рабочему варианту */
+* responsive.css - итоговая рабочая версия */
 
+/* Сброс отступов и-box sizing */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Разметка секции */
 section {
   width: 100%;
-  overflow-x: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0 16px;
+  overflow-x: hidden;
 }
 
-/* Контейнер карточек: flex с переносом */
+/* Контейнер карточек */
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
-  padding: 24px 0;
+  padding: 32px 0;
+  width: 100%;
 }
 
-/* Карточка: фиксированная ширина до адаптива */
+/* Карточка */
 .card {
   flex: 1 1 320px;
   max-width: 480px;
+  width: 100%;
   background: #fff;
   border: 1px solid #967085;
   border-radius: 16px;
@@ -34,6 +40,7 @@ section {
   overflow: hidden;
 }
 
+/* Заголовки и контент */
 .card h2, .card h3 {
   margin-bottom: 12px;
   word-break: break-word;
@@ -42,9 +49,10 @@ section {
 .card p {
   margin-bottom: 12px;
   line-height: 1.5;
-  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
+/* Номер внизу */
 .card .number {
   margin-top: auto;
   align-self: flex-end;
@@ -52,17 +60,18 @@ section {
   font-size: 0.9rem;
 }
 
+/* Скрываем декоративный элемент */
 .card .decor {
   display: none !important;
 }
 
-/* Планшеты и ниже: одна колонка */
+/* Планшеты и меньше: одна колонка */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    padding: 16px 0;
+    gap: 20px;
+    padding: 24px 0;
   }
   .card {
     max-width: 100%;
@@ -70,13 +79,14 @@ section {
   }
 }
 
-/* Мобильные: меньше отступы */
+/* Мобильные: корректировка отступов и шрифтов */
 @media (max-width: 480px) {
   section {
     padding: 0 12px;
   }
   .container {
-    gap: 12px;
+    gap: 16px;
+    padding: 16px 0;
   }
   .card {
     padding: 16px;
