@@ -42,19 +42,20 @@ section.news .container {
   border-radius: 12px;
   padding: 24px;
   position: relative;
-  overflow: hidden;
-  /* по умолчанию — две в ряд */
+  /* убрали overflow:hidden */
+  /* overflow: hidden; */
   flex: 1 1 calc(50% - 20px);
   max-width: calc(50% - 20px);
   margin-bottom: 20px;
 }
 
-/* чтобы текст внутри не лез наружу */
+/* чтобы текст внутри нормально переносился */
 [class^="card"] h2,
 [class^="card"] p,
 .cir h2,
 .cir p {
   word-break: break-word;
+  white-space: normal;
 }
 
 /* ===================================================================
@@ -80,7 +81,7 @@ section.news img {
 
 /* ===================================================================
    7. СМАРТФОНЫ
-   — один столбец, карточки 100% ширины
+   — один столбец, карточки 100% ширины, текст не обрезается
 =================================================================== */
 @media (max-width: 480px) {
   .container,
@@ -93,9 +94,9 @@ section.news img {
 
   [class^="card"],
   .cir {
-    /* снимаем все расчёты, ставим 100% */
     flex: 1 1 100% !important;
     max-width: 100% !important;
     margin: 0 0 16px !important;
+    overflow: visible !important; /* позволяем тексту выходить за рамки, если нужно */
   }
 }
