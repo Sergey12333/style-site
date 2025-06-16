@@ -10,76 +10,67 @@
 }
 
 /* ===================================================================
-   Базовые стили текста
+   Базовые стили
 =================================================================== */
 body {
   font-family: 'GildaDisplay-Regular.ttf', serif;
   line-height: 1.6;
   color: #4a4a4a;
   background: #f7f6f4;
+  overflow-x: hidden;
 }
 
 /* ===================================================================
-   Глобальный контейнер
+   Общий контейнер для секций
 =================================================================== */
 .container {
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
   gap: 20px;
+  padding: 20px;
+  max-width: 100%;
 }
 
 /* ===================================================================
-   Карточки преимуществ (пример)
-   .card1, .card2, .card3, .card4, .cir и т.п.
+   Карточки преимуществ и любых блоков с классом .card*
 =================================================================== */
-.card1,
-.card2,
-.card3,
-.card4,
+[class^="card"],
 .cir {
   flex: 1 1 calc(50% - 20px);
+  max-width: calc(50% - 20px);
   border: 1px solid #9b7a88;
   border-radius: 12px;
   padding: 24px;
-  position: relative;
   background: #fff;
+  overflow: hidden;
+  position: relative;
 }
 
 /* ===================================================================
-   Новостные карточки (пример селектора section.news .container)
+   Секция «Новости»: похожий контейнер
 =================================================================== */
 section.news .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 20px;
   padding: 20px;
 }
 
 /* ===================================================================
-   Медиазапросы
+   Медиазапросы для адаптива
 =================================================================== */
 @media (max-width: 768px) {
-  /* На планшетах: две карточки в ряд */
-  .card1,
-  .card2,
-  .card3,
-  .card4,
+  /* Планшет: по 2 в ряд */
+  [class^="card"],
   .cir {
     flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
 }
 
 @media (max-width: 480px) {
-  /* На смартфонах: одноколоночный стек для всех контейнеров */
-  .container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    padding: 0 12px !important;
-  }
-
-  /* Если нужен отдельный стиль для новостей: */
+  /* Смартфон: один столбец */
+  .container,
   section.news .container {
     display: flex !important;
     flex-direction: column !important;
@@ -87,11 +78,26 @@ section.news .container {
     padding: 0 12px !important;
   }
 
-  /* Заголовки внутри карточек: допускаем перенос слов, но не выезд за границы */
-  .card1 h2,
-  .card2 h2,
-  .card3 h2,
-  .card4 h2 {
+  /* Каждая карточка на всю ширину */
+  [class^="card"],
+  .cir {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Заголовки и текст внутри карточек */
+  [class^="card"] h2,
+  [class^="card"] p,
+  .cir h2,
+  .cir p {
     word-break: break-word;
+  }
+
+  /* Изображения новости: чтобы не накладывались */
+  section.news img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
   }
 }
