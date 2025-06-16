@@ -1,4 +1,4 @@
-* responsive.css - итоговая рабочая версия */
+/* responsive.css - итоговая рабочая версия */
 
 /* Сброс отступов и-box sizing */
 *, *::before, *::after {
@@ -13,7 +13,7 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
-  overflow-x: hidden;
+  /* Убираем скрытие по горизонтали */
 }
 
 /* Контейнер карточек */
@@ -28,16 +28,15 @@ section {
 
 /* Карточка */
 .card {
-  flex: 1 1 320px;
-  max-width: 480px;
-  width: 100%;
+  flex: 1 1 300px;
+  max-width: 100%;
   background: #fff;
   border: 1px solid #967085;
   border-radius: 16px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 /* Заголовки и контент */
@@ -75,6 +74,7 @@ section {
   }
   .card {
     max-width: 100%;
+    width: auto;
     flex: none;
   }
 }
