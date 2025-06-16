@@ -1,5 +1,5 @@
 /* ===================================================================
-   Сброс отступов и box-sizing
+   1. СБРОС ОТСТУПОВ И BOX-SIZING
 =================================================================== */
 *,
 *::before,
@@ -10,57 +10,67 @@
 }
 
 /* ===================================================================
-   Базовые стили
+   2. БАЗОВЫЕ СТИЛИ ТЕЛА
 =================================================================== */
 body {
   font-family: 'GildaDisplay-Regular.ttf', serif;
-  line-height: 1.6;
+  background-color: #f7f6f4;
   color: #4a4a4a;
-  background: #f7f6f4;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
 /* ===================================================================
-   Общий контейнер для секций
+   3. ОБЩИЕ КОНТЕЙНЕРЫ
 =================================================================== */
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  max-width: 100%;
-}
-
-/* ===================================================================
-   Карточки преимуществ и любых блоков с классом .card*
-=================================================================== */
-[class^="card"],
-.cir {
-  flex: 1 1 calc(50% - 20px);
-  max-width: calc(50% - 20px);
-  border: 1px solid #9b7a88;
-  border-radius: 12px;
-  padding: 24px;
-  background: #fff;
-  overflow: hidden;
-  position: relative;
-}
-
-/* ===================================================================
-   Секция «Новости»: похожий контейнер
-=================================================================== */
+.container,
 section.news .container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  width: 100%;
 }
 
 /* ===================================================================
-   Медиазапросы для адаптива
+   4. КАРТОЧКИ (card1, card2, …) И ЦИРКУЛЯРНЫЕ .cir
+=================================================================== */
+[class^="card"],
+.cir {
+  background: #fff;
+  border: 1px solid #9b7a88;
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  /* На десктопе и планшете: две в ряд */
+  flex: 1 1 calc(50% - 20px);
+  max-width: calc(50% - 20px);
+}
+
+/* Гарантируем, что внутри текст не вылезает */
+[class^="card"] h2,
+[class^="card"] p,
+.cir h2,
+.cir p {
+  word-break: break-word;
+}
+
+/* ===================================================================
+   5. ИЗОБРАЖЕНИЯ В НОВОСТЯХ
+=================================================================== */
+section.news img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ===================================================================
+   6. МЕДИАЗАПРОСЫ ДЛЯ АДАПТИВА
 =================================================================== */
 @media (max-width: 768px) {
-  /* Планшет: по 2 в ряд */
+  /* Планшеты и мелкие десктопы: сохраняем 2 колонки */
   [class^="card"],
   .cir {
     flex: 1 1 calc(50% - 20px);
@@ -69,35 +79,17 @@ section.news .container {
 }
 
 @media (max-width: 480px) {
-  /* Смартфон: один столбец */
+  /* Смартфоны: один столбец и убираем лишние отступы */
   .container,
   section.news .container {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px !important;
-    padding: 0 12px !important;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 16px;
   }
 
-  /* Каждая карточка на всю ширину */
   [class^="card"],
   .cir {
-    flex: 1 1 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Заголовки и текст внутри карточек */
-  [class^="card"] h2,
-  [class^="card"] p,
-  .cir h2,
-  .cir p {
-    word-break: break-word;
-  }
-
-  /* Изображения новости: чтобы не накладывались */
-  section.news img {
-    width: 100% !important;
-    height: auto !important;
-    display: block;
-    margin: 0 auto;
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }
