@@ -1,30 +1,33 @@
-/* responsive.css - обновлена */
+/* responsive.css - обновлена полностью на русском */
 
-/* Сброс отступов */
+/* 1. Сброс отступов и box-sizing */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Базовая секция */
+/* 2. Базовая секция */
 section {
   width: 100%;
   max-width: 100%;
   padding: 0;
 }
 
-/* Контейнер карточек: двухколоночный на десктопе, одна колонка ниже 1024px */
+/* 3. Контейнер карточек */
+/*   - используем grid для автоматического подбора колонок
+     - justify-items: start предотвращает смещение карточек за границу */
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   padding: 20px;
   width: 100%;
-  justify-items: center;
+  justify-content: center;
+  justify-items: start; /* выравнивание по началу контейнера */
 }
 
-/* Одна карточка */
+/* 4. Оформление карточки */
 .card {
   width: 100%;
   max-width: 600px;
@@ -37,7 +40,7 @@ section {
   overflow: hidden;
 }
 
-/* Заголовки в карточке */
+/* 5. Заголовки внутри карточки */
 .card h2,
 .card h3 {
   font-weight: normal;
@@ -45,15 +48,14 @@ section {
   word-break: break-word;
 }
 
-/* Текст в карточке */
+/* 6. Текст в карточке */
 .card p {
   line-height: 1.5;
-  word-break: normal;
   overflow-wrap: break-word;
   margin-bottom: 12px;
 }
 
-/* Порядковый номер */
+/* 7. Номер карточки */
 .card .number {
   align-self: flex-end;
   color: #967085;
@@ -61,13 +63,14 @@ section {
   margin-top: auto;
 }
 
-/* Убираем старый декоративный элемен */
+/* 8. Убираем декоративный элемент */
 .card .decor {
   display: none !important;
 }
 
-/* --- Адаптив --- */
+/* --- Адаптив для планшетов и мобильных --- */
 @media (max-width: 1024px) {
+  /* 1 колонка */
   .container {
     grid-template-columns: 1fr;
     padding: 16px;
