@@ -1,26 +1,27 @@
 /* public/css/cart.css */
 
+/* Общий контейнер карточек */
 .cart-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  padding: 20px;
+  gap: 24px;
+  padding: 24px;
   box-sizing: border-box;
 }
 
-/* Карточка */
+/* Одна карточка */
 .cart-section .card {
   background-color: #fff;
   border: 1px solid #967085;
   border-radius: 16px;
-  width: 100%;
-  max-width: 400px;
-  padding: 24px;
   box-sizing: border-box;
-  overflow: visible;       /* чтобы контент не обрезался */
+  padding: 24px;
+  flex: 1 1 calc(50% - 48px); /* две колонки, с учётом gap */
+  max-width: calc(50% - 48px);
   display: flex;
   flex-direction: column;
+  overflow: visible;
 }
 
 /* Заголовок */
@@ -37,58 +38,50 @@
   font-size: 1rem;
   line-height: 1.4;
   word-break: break-word;
-  white-space: normal;     /* строгий перенос */
+  white-space: normal;
   hyphens: auto;
+  flex: 1 0 auto;
 }
 
-/* Номер карточки */
+/* Номер */
 .cart-section .card .card-number {
   align-self: flex-end;
   font-size: 0.9rem;
   color: #967085;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
-/* Удаляем декоративную “карусельную” картинку-клипарт */
+/* Убираем декоративную “рамку-клипарт” */
 .cart-section .card .card-clip {
   display: none !important;
 }
 
-/* Отступ снизу последней */
-.cart-section .card:last-child {
-  margin-bottom: 20px;
+/* --- Адаптив --- */
+
+/* На планшетах и выше: две колонки */
+@media (max-width: 1024px) {
+  .cart-section .card {
+    flex: 1 1 calc(50% - 48px);
+    max-width: calc(50% - 48px);
+    padding: 20px;
+  }
 }
 
-/* Адаптив */
-@media (max-width: 768px) {
+/* Мобильные: одна колонка */
+@media (max-width: 767px) {
   .cart-section {
     gap: 16px;
     padding: 16px;
   }
   .cart-section .card {
-    padding: 16px;
+    flex: 1 1 100%;
     max-width: 100%;
+    padding: 16px;
   }
   .cart-section .card h3 {
     font-size: 1.5rem;
   }
   .cart-section .card p {
     font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart-section {
-    gap: 12px;
-    padding: 12px;
-  }
-  .cart-section .card {
-    padding: 12px;
-  }
-  .cart-section .card h3 {
-    font-size: 1.25rem;
-  }
-  .cart-section .card p {
-    font-size: 0.9rem;
   }
 }
